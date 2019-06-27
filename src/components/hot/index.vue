@@ -1,7 +1,7 @@
 <template>
     <div class="movie-body">
         <ul>
-            <li>
+            <!-- <li>
                 <div class="pic">
                     <img src="/images/1.jpg" alt="电影海报">
                 </div>
@@ -60,6 +60,18 @@
                     <p>今天65家影院放映609场</p>
                 </div>
                 <div class="buy">购票</div>
+            </li> -->
+            <li v-for="item in moviemes" :key="item.id">
+                <div class="pic">
+                    <img v-bind:src="item.img | setWH('128.180')" alt="电影海报">
+                </div>
+                <div class="info-list">
+                    <h2>{{ item.nm }}<img v-if="item.version" src="@/assets/3d.png" alt="iamx"></h2>
+                    <p>大众评分 <span class="grade">{{ item.sc }}</span></p>
+                    <p>主演：{{ item.star }}</p>
+                    <p>{{ item.showInfo }}</p>
+                </div>
+                <div class="buy">购票</div>
             </li>
         </ul>
     </div>
@@ -67,7 +79,20 @@
 
 <script>
 export default {
-    name:"hot"
+    name:"hot",
+    data(){
+        return {
+            moviemes:[]
+        }
+    },
+    mounted(){  //在mounted生命周期中代理数据
+        this.axios.get('/api/movieOnInfoList?cityId=10').then((res)=>{
+            var msg=res.data.msg;
+            if(msg === 'ok'){
+                this.moviemes = res.data.data.movieList
+            }
+        });
+    }
 }
 </script>
 

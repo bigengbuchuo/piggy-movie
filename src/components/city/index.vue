@@ -1,6 +1,6 @@
 <template>
     <div class="city-body">
-        <div class="city-list">
+        <!-- <div class="city-list">
             <div class="city-hot">
                 <h2>热门城市</h2>
                 <ul class="cities">
@@ -52,19 +52,113 @@
                 <li>D</li>
                 <li>E</li>
             </ul>
+        </div> -->
+        <div class="city-list">
+            <div class="city-hot">
+                <h2>热门城市</h2>
+                <ul class="cities">
+                    <li v-for="item in hotCity" :key="item.id">{{ item.nm }}</li>
+                </ul>
+            </div>
+            <div class="city-sort" ref="city_sort">
+                <div v-for="item in cityListed" :key="item.index">
+                    <h2>{{ item.index }}</h2>
+                    <ul>
+                        <li v-for="item2 in item.list" :kry="item2.id">{{ item2.nm }}</li>
+                    </ul>
+                </div>
+            </div> 
         </div>
+        <div class="city-index">
+            <ul>
+                <li v-for="(item,index) in cityListed" :key="item.index" v-on:touchstart="hunt(index)">{{item.index}}</li>
+            </ul>
+        </div>   
     </div>
 </template>
 
 <script>
 export default {
-    name:'city'
+    name:'city',
+    data(){
+        return{
+            cityListed:[],
+            hotCity:[]
+        }
+    },
+    mounted(){  //在mounted生命周期中代理数据
+        this.axios.get('/api/cityList').then((res)=>{
+            var msg=res.data.msg;
+            if(msg==='ok'){
+                var cities=res.data.data.cities;
+                // [{index:'A',list:[{nm:'阿拉',id:123}]}]
+                var {cityListed , hotCity} = this.trim(cities);  //解构映射
+                this.cityListed=cityListed;
+                this.hotCity=hotCity;
+            }
+        })
+    },
+    methods:{
+        trim(cities){
+            var cityListed=[];
+            var hotCity=[];
+
+            for(var i=0;i<cities.length;i++){
+                if(cities[i].isHot === 1){
+                    hotCity.push(cities[i]);
+                }
+            }
+
+            for(var i=0;i<cities.length;i++){
+                var one=cities[i].py.substring(0,1).toUpperCase();  //转大写
+                if(check(one)){  //创建未知索引
+                    cityListed.push({index:one,list:[{nm:cities[i].nm,id:cities[i].id}]})
+                }else{  //添加到已知索引
+                    for(var j=0;j<cityListed.length;j++){
+                        if(cityListed[j].index===one){
+                            cityListed[j].list.push({nm:cities[i].nm,id:cities[i].id})
+                        }
+                    }
+                }
+            }
+
+            cityListed.sort((n1,n2)=>{  //排序
+                if(n1.index>n2.index){
+                    return 1;
+                }else if(n1.index<n2.index){
+                    return -1;
+                }else{
+                    return 0;
+                }
+            });
+
+            function check(one){   //已排序列表是否存在索引
+                for(var i=0;i<cityListed.length;i++){
+                    if(cityListed[i].index === one){
+                        return false;
+                    }
+                }
+                return true;
+            }
+            // console.log(cityListed);
+            // console.log(hotCity);
+
+            return {
+                cityListed,
+                hotCity
+            };
+        },
+        hunt(index){
+            var h2 = this.$refs.city_sort.getElementsByTagName('h2');  //选定元素+事件获取h2标签
+            this.$refs.city_sort.parentNode.scrollTop = h2[index].offsetTop-55;  //city-list那个div
+        }
+    }
 }
 </script>
 
 <style scoped>
 .city-body{
-    /* display: flex; */
+    display: flex;
     width: 100%;
     flex: 1;
     overflow: auto;
