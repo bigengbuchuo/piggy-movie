@@ -2,7 +2,7 @@
     <div class="cinema-body">
         <div class="wrapper">
             <ul>
-                <li>
+                <!-- <li>
                     <div>
                         <span class="name">华夏优加影城（长和国际店</span>
                         <span class="all"><span  class="price">39.9</span> 元起</span>
@@ -49,6 +49,19 @@
                         <div class="c2">折扣卡</div>
                         <div class="c2">小吃</div>
                     </div>
+                </li> -->
+                <li v-for="item in cinameList" :key="item.id">
+                    <div>
+                        <span class="name">{{ item.nm }}</span>
+                        <span class="all"><span  class="price">{{ item.sellPrice }}</span> 元起</span>
+                    </div>
+                    <div  class="address">
+                        <span>{{ item.addr }}</span>
+                        <span class="meter">{{ item.distance }}</span>
+                    </div>
+                    <div  class="card">
+                        <div v-for="(num,key) in item.tag" v-if="num===1" :key="key" :class="key | classcard">{{ key | classify }}</div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -57,7 +70,51 @@
 
 <script scoped>
 export default {
-    name:'cinemalist'
+    name:'cinemalist',
+    data(){
+        return{
+            cinameList:[]
+        }
+    },
+    mounted(){
+        this.axios.get('/api/cinemaList?cityId=10').then((res)=>{
+            var msg=res.data.msg;
+            if(msg === 'ok'){
+                this.cinameList = res.data.data.cinemas;
+            }
+        });
+    },
+    filters:{
+        classify(key){
+            var card=[
+                {key:'allowRefund',value:'改签'},
+                {key:'endorse',value:'退'},
+                {key:'sell',value:'折扣卡'},
+                {key:'snack',value:'小吃'},
+            ];
+            for(var i=0;i<card.length;i++){
+                if(card[i].key === key){
+                    return card[i].value;
+                }
+            }
+            return '';
+        },
+        classcard(key){
+            var card=[
+                {key:'allowRefund',value:'c1'},
+                {key:'endorse',value:'c1'},
+                {key:'sell',value:'c2'},
+                {key:'snack',value:'c2'},
+            ];
+            for(var i=0;i<card.length;i++){
+                if(card[i].key === key){
+                    return card[i].value;
+                }
+            }
+            return '';
+        }
+    }
+
 }
 </script>
 
