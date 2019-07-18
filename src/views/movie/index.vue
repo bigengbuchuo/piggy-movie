@@ -4,7 +4,7 @@
             <div class="content">
                 <div class="movie-menu">
                     <router-link tag="div" to="/movie/city" class="city-name">
-                        <span>北京</span><i class="iconfont icon-triangle"></i>
+                        <span>{{ $store.state.city.nm }}</span><i class="iconfont icon-triangle"></i>
                     </router-link>
                     <div class="hot-now">
                         <router-link tag="div" to="/movie/hot" class="hot-item">正在热映</router-link>
@@ -26,12 +26,40 @@
 
 import  Header from '@/components/header';
 import Button from '@/components/button';
+import {msgBox} from '@/components/js/index.js';
 
 export default {
     name:'movie',
     components:{
         Header,
-        Button
+        Button,
+    },
+    mounted(){
+        setTimeout(()=>{
+            this.axios.get('/api/getLocation').then((res)=>{
+                var msg=res.data.msg;
+                if(msg==='ok'){
+                    
+                    var nm=res.data.data.nm;
+                    var id=res.data.data.id;
+                    // console.log(this.$store.state.city.id,id);  字符串 数字
+                    if(this.$store.state.city.id == id){
+                        return;
+                    }
+                    msgBox({
+                        title:'定位',
+                        content:nm,
+                        cancel:'取消',
+                        ok:'切换定位',
+                        handleOk(){
+                            window.localStorage.setItem('nownm',nm);
+                            window.localStorage.setItem('nowid',id);
+                            window.location.reload();   //刷新页面
+                        },
+                    });
+                }
+            });
+        },1500);
     }
 }
 </script>

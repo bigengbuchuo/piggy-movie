@@ -54,26 +54,31 @@
             </ul>
         </div> -->
         <div class="city-list">
-            <div class="city-hot">
-                <h2>热门城市</h2>
-                <ul class="cities">
-                    <li v-for="item in hotCity" :key="item.id">{{ item.nm }}</li>
-                </ul>
-            </div>
-            <div class="city-sort" ref="city_sort">
-                <div v-for="item in cityListed" :key="item.index">
-                    <h2>{{ item.index }}</h2>
-                    <ul>
-                        <li v-for="item2 in item.list" :kry="item2.id">{{ item2.nm }}</li>
-                    </ul>
+            <loading v-if="needLoading" />
+            <betterScroll v-else>
+                <div>
+                    <div class="city-hot">
+                        <h2>热门城市</h2>
+                        <ul class="cities">
+                            <li v-for="item in hotCity" :key="item.id" v-on:tap="toCity(item.nm,item.id)">{{ item.nm }}</li>
+                        </ul>
+                    </div>
+                    <div class="city-sort" ref="city_sort">
+                        <div v-for="item in cityListed" :key="item.index">
+                            <h2>{{ item.index }}</h2>
+                            <ul>
+                                <li v-for="item2 in item.list" :key="item2.id"  v-on:tap="toCity(item2.nm,item2.id)">{{ item2.nm }}</li>
+                            </ul>
+                        </div>
+                    </div> 
                 </div>
-            </div> 
+            </betterScroll>
         </div>
         <div class="city-index">
             <ul>
                 <li v-for="(item,index) in cityListed" :key="item.index" v-on:touchstart="hunt(index)">{{item.index}}</li>
             </ul>
-        </div>   
+        </div>  
     </div>
 </template>
 
@@ -83,20 +88,35 @@ export default {
     data(){
         return{
             cityListed:[],
-            hotCity:[]
+            hotCity:[],
+            needLoading: true
         }
     },
     mounted(){  //在mounted生命周期中代理数据
-        this.axios.get('/api/cityList').then((res)=>{
-            var msg=res.data.msg;
-            if(msg==='ok'){
-                var cities=res.data.data.cities;
-                // [{index:'A',list:[{nm:'阿拉',id:123}]}]
-                var {cityListed , hotCity} = this.trim(cities);  //解构映射
-                this.cityListed=cityListed;
-                this.hotCity=hotCity;
-            }
-        })
+
+        var cityListed=window.localStorage.getItem('cityListed');
+        var hotCity=window.localStorage.getItem('hotCity');
+
+        if( cityListed && hotCity ){
+            this.cityListed = JSON.parse(cityListed);  //解析字符串
+            this.hotCity = JSON.parse(hotCity); 
+            this.needLoading=false;
+        }
+        else{
+            this.axios.get('/api/cityList').then((res)=>{
+                var msg=res.data.msg;
+                if(msg==='ok'){
+                    this.needLoading=false;
+                    var cities=res.data.data.cities;
+                    // [{index:'A',list:[{nm:'阿拉',id:123}]}]
+                    var {cityListed , hotCity} = this.trim(cities);  //解构映射
+                    this.cityListed=cityListed;
+                    this.hotCity=hotCity;
+                    window.localStorage.setItem('cityListed',JSON.stringify(cityListed));  //本地存储的类型是字符串类型,要转成字符串类型
+                    window.localStorage.setItem('hotCity',JSON.stringify(hotCity));
+                }
+            })
+        }    
     },
     methods:{
         trim(cities){
@@ -150,7 +170,13 @@ export default {
         },
         hunt(index){
             var h2 = this.$refs.city_sort.getElementsByTagName('h2');  //选定元素+事件获取h2标签
-            this.$refs.city_sort.parentNode.scrollTop = h2[index].offsetTop-55;  //city-list那个div
+            this.$refs.city_sort.parentNode.parentNode.parentNode.scrollTop = h2[index].offsetTop-52;  //city-list那个div
+        },
+        toCity(nm,id){
+            this.$store.commit('city/CITY_INFO',{ nm , id });
+            window.localStorage.setItem('nownm',nm);//记录上次的城市，而不是刷新之后又回到默认的北京
+            window.localStorage.setItem('nowid',id);
+            this.$router.push('/movie/hot');  //点击之后跳转到hot
         }
     }
 }

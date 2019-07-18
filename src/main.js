@@ -10,6 +10,12 @@ Vue.filter('setWH',(url,arg)=>{  //arg:传进来的图片大小
   return url.replace(/w\.h/,arg);   //正则：把w.h替换成arg
 });
 
+import betterScroll from '@/components/betterScroll';
+Vue.component('betterScroll',betterScroll);  //全局注册，'变量名'，组件名
+
+import loading from '@/components/loading';
+Vue.component('loading',loading);
+
 Vue.config.productionTip = false
 
 new Vue({

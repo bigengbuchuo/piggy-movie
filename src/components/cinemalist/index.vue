@@ -1,70 +1,71 @@
 <template>
     <div class="cinema-body">
-        <div class="wrapper">
-            <ul>
-                <!-- <li>
-                    <div>
-                        <span class="name">华夏优加影城（长和国际店</span>
-                        <span class="all"><span  class="price">39.9</span> 元起</span>
-                    </div>
-                    <div  class="address">
-                        <span>未央区经济技术开发区凤城八路与明光路交汇处长和国际卜蜂中心4</span>
-                        <span class="meter">905.6km</span>
-                    </div>
-                    <div  class="card">
-                        <div class="c1">改签</div>
-                        <div class="c1">退</div>
-                        <div class="c2">折扣卡</div>
-                        <div class="c2">小吃</div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <span class="name">华夏优加影城（长和国际店</span>
-                        <span class="all"><span  class="price">39.9</span> 元起</span>
-                    </div>
-                    <div  class="address">
-                        <span class="txt">未央区经济技术开发区凤城八路与明光路交汇处长和国际卜蜂中心4</span>
-                        <span class="meter">905.6km</span>
-                    </div>
-                    <div  class="card">
-                        <div class="c1">改签</div>
-                        <div class="c1">退</div>
-                        <div class="c2">折扣卡</div>
-                        <div class="c2">小吃</div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <span class="name">华夏优加影城（长和国际店</span>
-                        <span class="all"><span  class="price">39.9</span> 元起</span>
-                    </div>
-                    <div  class="address">
-                        <span>未央区经济技术开发区凤城八路与明光路交汇处长和国际卜蜂中心4</span>
-                        <span class="meter">905.6km</span>
-                    </div>
-                    <div  class="card">
-                        <div class="c1">改签</div>
-                        <div class="c1">退</div>
-                        <div class="c2">折扣卡</div>
-                        <div class="c2">小吃</div>
-                    </div>
-                </li> -->
-                <li v-for="item in cinameList" :key="item.id">
-                    <div>
-                        <span class="name">{{ item.nm }}</span>
-                        <span class="all"><span  class="price">{{ item.sellPrice }}</span> 元起</span>
-                    </div>
-                    <div  class="address">
-                        <span>{{ item.addr }}</span>
-                        <span class="meter">{{ item.distance }}</span>
-                    </div>
-                    <div  class="card">
-                        <div v-for="(num,key) in item.tag" v-if="num===1" :key="key" :class="key | classcard">{{ key | classify }}</div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <loading v-if="needLoading" />
+        <betterScroll v-else>
+        <ul>
+            <!-- <li>
+                <div>
+                    <span class="name">华夏优加影城（长和国际店</span>
+                    <span class="all"><span  class="price">39.9</span> 元起</span>
+                </div>
+                <div  class="address">
+                    <span>未央区经济技术开发区凤城八路与明光路交汇处长和国际卜蜂中心4</span>
+                    <span class="meter">905.6km</span>
+                </div>
+                <div  class="card">
+                    <div class="c1">改签</div>
+                    <div class="c1">退</div>
+                    <div class="c2">折扣卡</div>
+                    <div class="c2">小吃</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="name">华夏优加影城（长和国际店</span>
+                    <span class="all"><span  class="price">39.9</span> 元起</span>
+                </div>
+                <div  class="address">
+                    <span class="txt">未央区经济技术开发区凤城八路与明光路交汇处长和国际卜蜂中心4</span>
+                    <span class="meter">905.6km</span>
+                </div>
+                <div  class="card">
+                    <div class="c1">改签</div>
+                    <div class="c1">退</div>
+                    <div class="c2">折扣卡</div>
+                    <div class="c2">小吃</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="name">华夏优加影城（长和国际店</span>
+                    <span class="all"><span  class="price">39.9</span> 元起</span>
+                </div>
+                <div  class="address">
+                    <span>未央区经济技术开发区凤城八路与明光路交汇处长和国际卜蜂中心4</span>
+                    <span class="meter">905.6km</span>
+                </div>
+                <div  class="card">
+                    <div class="c1">改签</div>
+                    <div class="c1">退</div>
+                    <div class="c2">折扣卡</div>
+                    <div class="c2">小吃</div>
+                </div>
+            </li> -->
+            <li v-for="item in cinameList" :key="item.id">
+                <div>
+                    <span class="name">{{ item.nm }}</span>
+                    <span class="all"><span  class="price">{{ item.sellPrice }}</span> 元起</span>
+                </div>
+                <div  class="address">
+                    <span>{{ item.addr }}</span>
+                    <span class="meter">{{ item.distance }}</span>
+                </div>
+                <div  class="card">
+                    <div v-for="(num,key) in item.tag" v-if="num===1" :key="key" :class="key | classcard">{{ key | classify }}</div>
+                </div>
+            </li>
+        </ul>
+        </betterScroll>
     </div>
 </template>
 
@@ -73,13 +74,22 @@ export default {
     name:'cinemalist',
     data(){
         return{
-            cinameList:[]
+            cinameList:[],
+            needLoading: true,
+            preCityId:-1
         }
     },
-    mounted(){
-        this.axios.get('/api/cinemaList?cityId=10').then((res)=>{
+    activated(){
+
+        var cityId=this.$store.state.city.id;
+        if( this.preCityId === cityId){return;} 
+        this.needLoading = true;
+
+        this.axios.get('/api/cinemaList?cityId='+cityId).then((res)=>{
             var msg=res.data.msg;
             if(msg === 'ok'){
+                this.needLoading=false;
+                this.preCityId = cityId;
                 this.cinameList = res.data.data.cinemas;
             }
         });
@@ -123,9 +133,9 @@ export default {
         flex: 1;
         overflow: auto;
     }
-    .cinema-body .wrapper{
+    /* .cinema-body .wrapper{
         margin-bottom: 10px;
-    }
+    } */
     .cinema-body div{
         margin-bottom: 10px;
     }
