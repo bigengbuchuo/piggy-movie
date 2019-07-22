@@ -19,6 +19,7 @@
                 </keep-alive>
             </div>
         <Button/>
+        <router-view name="detail" />
     </div>
 </template>
 
@@ -70,7 +71,7 @@ export default {
         height:45px;
         border-bottom: 1px solid #e6e6e6;
         /* display: flex; */
-            display: -webkit-box;
+        display: -webkit-box;
         justify-content: space-between;
         align-items: center;
         background: #fff;

@@ -65,11 +65,11 @@
                 </li> -->
                 <li class="wait" ref="wait">{{ pulldown }}</li>
                 <li v-for="item in moviemes" :key="item.id">
-                    <div class="pic" v-on:tap="skip">
-                        <img v-bind:src="item.img | setWH('128.180')" alt="电影海报">
+                    <div class="pic" v-on:tap="tapToDetail(item.id)">
+                        <img v-bind:src="item.img | setWH('128.180')" alt="">
                     </div>
                     <div class="info-list">
-                        <h2>{{ item.nm }}<img v-if="item.version" src="@/assets/3d.png" alt="iamx"></h2>
+                        <h2 v-on:tap="tapToDetail(item.id)">{{ item.nm }}<img v-if="item.version" src="@/assets/3d.png" alt="iamx"></h2>
                         <p>大众评分 <span class="grade">{{ item.sc }}</span></p>
                         <p>主演：{{ item.star }}</p>
                         <p>{{ item.showInfo }}</p>
@@ -141,8 +141,9 @@ export default {
         });
     },
     methods:{
-        skip(){
-            // console.log(111);
+        tapToDetail(movieId){
+            // console.log(movieId);
+            this.$router.push('/movie/detail/1/'+ movieId);  //跳转到详情页
         },
         handleToScroll(pos){
             if(pos.y > 30){

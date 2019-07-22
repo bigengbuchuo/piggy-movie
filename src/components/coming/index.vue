@@ -65,11 +65,11 @@
                 </li> -->
                 <li class="wait" ref="wait">{{ pulldown }}</li>
                 <li v-for="item in comingList" :key="item.id">
-                    <div class="pic">
+                    <div class="pic" v-on:tap="tapToDetail(item.id)">
                         <img :src="item.img | setWH('128.180')" alt="电影海报">
                     </div>
                     <div class="info-list">
-                        <h2>{{ item.nm }}<img v-if="item.version" src="@/assets/3d.png" alt="iamx"></h2>
+                        <h2 v-on:tap="tapToDetail(item.id)">{{ item.nm }}<img v-if="item.version" src="@/assets/3d.png" alt="iamx"></h2>
                         <p><span class="want">{{ item.wish }}</span> 人想看</p>
                         <p>主演：{{ item.star }}</p>
                         <p>{{ item.rt }}上映</p>
@@ -108,6 +108,9 @@ export default {
         })
     },
     methods:{
+        tapToDetail(movieId){
+            this.$router.push('/movie/detail/2/'+movieId)
+        },
         handleToScroll(pos){
             if(pos.y > 30){
                 this.$refs.wait.style.height=36+'px';
