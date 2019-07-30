@@ -2,7 +2,7 @@
     <div id='main'>
         <Header title="个 人 信 息"/>
         <div class="content">
-            <login/>
+            <router-view />
         </div>
         <Button/>
     </div>

@@ -104,7 +104,7 @@ export default {
         }
         else{
             this.axios.get('/api/cityList').then((res)=>{
-                var msg=res.data.msg;
+                var msg=res.data.msg; 
                 if(msg==='ok'){
                     this.needLoading=false;
                     var cities=res.data.data.cities;
