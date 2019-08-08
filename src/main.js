@@ -16,6 +16,10 @@ Vue.component('betterScroll',betterScroll);  //全局注册，'变量名'，组�
 import loading from '@/components/loading';
 Vue.component('loading',loading);
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 Vue.config.productionTip = false
 
 new Vue({

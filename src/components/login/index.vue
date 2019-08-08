@@ -6,6 +6,9 @@
         <div>
             <input v-model="password" type="password" placeholder="请输入您的密码" class="login-text">
         </div>
+        <div>
+            <input type="text" class="login-text" placeholder="请输入您的验证码" v-model="verifyImg"><img class="loginVerify" @touchstart="changeVerify" src="/api2/users/verifyImg">
+        </div>
         <div class="login-btn">
             <input type="submit" value="登  录" @touchstart="toLogin">
         </div>
@@ -24,14 +27,16 @@ export default {
     data(){
         return{
             username:'',
-            password:''
+            password:'',
+            verifyImg:''
         }
     },
     methods:{
         toLogin(){
             this.axios.post('/api2/users/login',{
                 username:this.username,
-                password:this.password
+                password:this.password,
+                verifyImg:this.verifyImg
             }).then((res)=>{
                 var status = res.data.status;
                 var This=this;
@@ -47,15 +52,17 @@ export default {
                 }else{
                     msgBox({
                         title:'登录',
-                        content:'登录失败',
+                        content:res.data.msg,
                         ok:'确定'
                     })
                 }
             // }).catch((res) => {
             //     console.log("错误：" + res);
             });
+        },
+        changeVerify(ev){
+            ev.target.src='/api2/users/verifyImg?'+Math.random();
         }
-        
     }
 }
 </script>
@@ -70,7 +77,7 @@ export default {
     border: none;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
-    text-indent: 18px;
+    text-indent: 26px;
 }
 .login-body .login-btn{
     height: 40px;
@@ -95,6 +102,10 @@ export default {
     font-size: 12px;
     margin:0 10px;
     color: #6495ED;
+}
+.loginVerify{
+    width: 140px;
+    margin: 13px auto;
 }
 
 </style>

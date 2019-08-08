@@ -17,47 +17,11 @@
                 </li>
                 <li>
                     <div class="pic">
-                        <img src="/images/2.jpg" alt="电影海报">
-                    </div>
-                    <div class="info-list">
-                        <h2>千与千寻2</h2>
-                        <p>大众评分 <span class="grade">9.3</span></p>
-                        <p>主演：aaa,bbb,ccc</p>
-                        <p>今天65家影院放映609场</p>
-                    </div>
-                    <div class="buy">购票</div>
-                </li>
-                <li>
-                    <div class="pic">
-                        <img src="/images/3.jpg" alt="电影海报">
-                    </div>
-                    <div class="info-list">
-                        <h2>千与千寻3</h2>
-                        <p>大众评分 <span class="grade">9.3</span></p>
-                        <p>主演：aaa,bbb,ccc</p>
-                        <p>今天65家影院放映609场</p>
-                    </div>
-                    <div class="buy">购票</div>
-                </li>
-                <li>
-                    <div class="pic">
                         <img src="/images/1.jpg" alt="电影海报">
                     </div>
                     <div class="info-list">
                         <h2>千与千寻4</h2>
                         <p>大众评分 <span class="grade">9.4</span></p>
-                        <p>主演：aaa,bbb,ccc</p>
-                        <p>今天65家影院放映609场</p>
-                    </div>
-                    <div class="buy">购票</div>
-                </li>
-                <li>
-                    <div class="pic">
-                        <img src="/images/2.jpg" alt="电影海报">
-                    </div>
-                    <div class="info-list">
-                        <h2>千与千寻5</h2>
-                        <p>大众评分 <span class="grade">9.5</span></p>
                         <p>主演：aaa,bbb,ccc</p>
                         <p>今天65家影院放映609场</p>
                     </div>
