@@ -1,4 +1,22 @@
 export default{
     path:'/admin',
     component:()=>import('@/views/admin'),
+    children:[
+        {
+            path:'users',
+            component:()=>import('@/views/admin/users')
+        },
+        {
+            path:'cinema',
+            component:()=>import('@/views/admin/cinema')
+        },
+        {
+            path:'movie',
+            component:()=>import('@/views/admin/movie')
+        },
+        {
+            path:'/admin',
+            redirect:'users'
+        }
+    ]
 }

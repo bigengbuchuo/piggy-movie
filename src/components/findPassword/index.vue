@@ -1,7 +1,7 @@
 <template>
     <div class="findPassword_body">
         <div class="yzm item">
-            邮箱：<input v-model="email" type="text" class="findPassword_text"> <button @touchstart="handleToVerify">发送验证码</button>
+            邮箱：<input v-model="email" type="text" class="findPassword_text"> <button :disabled="disabled" @touchstart="handleToVerify">{{ verifyInfo }}</button>
         </div>
         <div class="item">
             新密码：<input v-model="password" type="text" class="findPassword_text">
@@ -27,18 +27,24 @@ export default {
         return{
             email:'',
             password:'',
-            verify:''
+            verify:'',
+            verifyInfo:'发送验证码',
+            disabled:false
         }
     },
     methods:{
         handleToVerify(){
             this.axios.get('/api2/users/verify?email='+this.email).then((res)=>{
                 var status=res.data.status;
+                var This = this;
                 if(status === 0){
                     msgBox({
                         title:'验证码',
                         content:'验证码已发送',
-                        ok:'确定'
+                        ok:'确定',
+                        handleOk(){
+                            This.countDown();
+                        }
                     });
                 }else{
                     msgBox({
@@ -69,11 +75,25 @@ export default {
                 }else{
                     msgBox({
                         title:'修改密码',
-                        content:'修改密码失败',
+                        content:res.data.msg+'，请重新修改',
                         ok:'确定'
                     });
                 }
             })
+        },
+        countDown(){
+            this.disabled=true;
+            var count =60;
+            var timer = setInterval(()=>{
+                count--;
+                this.verifyInfo='剩余'+ count +'秒';
+                if(count === 0){
+                    this.disabled = false;
+                    count = 60;
+                    this.verifyInfo='发送验证码';
+                    clearInterval(timer);
+                }
+            },1000) //1s执行一次
         }
     }
 }
@@ -106,7 +126,7 @@ export default {
     font-weight:100;
 }
 .findPassword_body .findPassword_text{
-    width: 60%;
+    width: 45%;
     height: 42px;
     border: none;
     text-indent: 3px;
