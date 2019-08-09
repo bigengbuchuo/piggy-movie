@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 1258752 */
+    src: url('//at.alicdn.com/t/font_1258752_laacwcx9yg.eot');
+    src: url('//at.alicdn.com/t/font_1258752_laacwcx9yg.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1258752_laacwcx9yg.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1258752_laacwcx9yg.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1258752_laacwcx9yg.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1258752_laacwcx9yg.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;/*字体清除锯齿效果*/
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-film::before{
+    content: "\e638";
+}
+.icon-theatre::before{
+    content: "\e61d";
+}
+.icon-my::before{
+    content: "\e632";
+}
+.icon-triangle::before{
+    content: "\e65a";
+}
+.icon-find::before{
+    content: "\e690";
+}
+.icon-right::before{
+    content: "\e7ea";
+}
+.icon-emoji::before{
+    content: "\e629";
+}
+.icon-pic::before{
+    content: "\e6e8";
+}
+.icon-admin::before{
+    content: "\e65b";
+}
