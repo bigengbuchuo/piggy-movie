@@ -1,5 +1,9 @@
 小猪电影项目总结
 ---
+### 项目预览
+![](https://github.com/bigengbuchuo/piggy-movie/blob/master/public/zipPic/00%20(1).png)
+![](https://github.com/bigengbuchuo/piggy-movie/blob/master/public/zipPic/01%20(1).png)
+---
 ### 项目简介
 一款基于Vue-cli实现的移动端电影信息查询系统
 
