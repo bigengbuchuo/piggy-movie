@@ -2,22 +2,28 @@
 ---
 ### 项目预览
 <div display:inline-block>
-	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/00%20(1).png" width="280">正在热映+城市定位
-	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/01%20(1).png" width="280">loading
-	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/02%20(1).png" width="280">即将上映
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/00%20(1).png" width="260">
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/01%20(1).png" width="260">
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/02%20(1).png" width="260">
+	正在热映+城市定位 &emsp;&emsp;&emsp;  loading  &emsp;&emsp;&emsp; 即将上映
 </div>
 <div display:inline>
-    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/09%20(1).png" width="280">影片详情
-    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/03%20(1).png" width="280">影院信息
-    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/04%20(1).png" width="280">登录
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/09%20(1).png" width="260">
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/03%20(1).png" width="260">
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/04%20(1).png" width="260">
+	影片详情 &emsp;&emsp;&emsp;&emsp;  影院信息  &emsp;&emsp;&emsp;&emsp; 登录
+	
 </div>
 <div display:inline>
-    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/05%20(1).png" width="280">注册
-    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/06%20(1).png" width="280">修改密码
-    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/07%20(1).png" width="280">个人中心
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/05%20(1).png" width="260">
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/06%20(1).png" width="260">
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/07%20(1).png" width="260">
+	注册&emsp;&emsp;&emsp;&emsp;  修改密码  &emsp;&emsp;&emsp;&emsp; 个人中心
 </div>
+
 <div align=center>
-<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/08%20(1).png" width="400">管理员页面
+<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/08%20(1).png" width="700">
+	管理员页面
 </div>
 
 ### 项目简介
