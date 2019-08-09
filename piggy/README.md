@@ -5,14 +5,14 @@
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/00%20(1).png" width="260">
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/01%20(1).png" width="260">
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/02%20(1).png" width="260">
-	&emsp;&emsp;&emsp;正在热映+城市定位 &emsp;&emsp;&emsp;&emsp;&emsp;   loading  &emsp;&emsp;&emsp;&emsp;&emsp;  即将上映
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;正在热映+城市定位 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   loading  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  即将上映
 </div>
 
 <div display:inline>
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/09%20(1).png" width="260">
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/03%20(1).png" width="260">
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/04%20(1).png" width="260">
-	&emsp;&emsp;&emsp;影片详情 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp  影院信息  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 登录
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;影片详情 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp  影院信息  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 登录
 	
 </div>
 
@@ -20,7 +20,7 @@
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/05%20(1).png" width="260">
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/06%20(1).png" width="260">
 	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/07%20(1).png" width="260">
-	&emsp;&emsp;&emsp;注册&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  修改密码  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 个人中心
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;注册&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  修改密码  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 个人中心
 </div>
 
 <div align=center>
