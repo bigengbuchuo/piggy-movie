@@ -1,17 +1,24 @@
 小猪电影项目总结
 ---
 ### 项目预览
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/00%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/01%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/02%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/03%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/04%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/05%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/06%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/07%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/08%20(1).png)
-![](https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/09%20(1).png)
-
+<div display:inline-block>
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/00%20(1).png" width="280">正在热映+城市定位
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/01%20(1).png" width="280">loading
+	<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/02%20(1).png" width="280">即将上映
+</div>
+<div display:inline>
+    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/09%20(1).png" width="280">影片详情
+    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/03%20(1).png" width="280">影院信息
+    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/04%20(1).png" width="280">登录
+</div>
+<div display:inline>
+    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/05%20(1).png" width="280">注册
+    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/06%20(1).png" width="280">修改密码
+    <img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/07%20(1).png" width="280">个人中心
+</div>
+<div align=center>
+<img src="https://github.com/bigengbuchuo/piggy-movie/blob/master/piggy/public/zipPic/08%20(1).png" width="400">管理员页面
+</div>
 
 ### 项目简介
 一款基于Vue-cli实现的移动端电影信息查询系统
